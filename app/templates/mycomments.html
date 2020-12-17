@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {%block content%}
+
+<div class="container">
+    <div class="row">
+        {%for blog in blogs%}
+        <div class=" col-md-12">
+            <div class="panel text-center" style=" color: white;">
+                <div class="panel-head text-info">
+                    <h3 style="color: blanchedalmond;">{{blog.title_blog}}</h3>
+                </div>
+                <hr>
+                <div class="panel-body">
+                    <p>{{blog.description}}</p>
+                    <p class="text-right text-muted" style="color: white;"> <b>~ {{blog.user.username}} ~</b></p>
+                </div>
+                <div class="panel-footer">
+                    <p class="date text-muted">Posted on ~ {{blog.date.strftime('%Y-%m-%d')}}</p>
+                    <!-- <a href="{{url_for('main.view', id=blog.id)}}"><i class="btn btn-warning">VIEW</i></a>&nbsp;&nbsp;&nbsp;&nbsp; {% if blog.user == current_user%} -->
+                    <a href="{{url_for('main.delete', id=blog.id)}}"><i class="btn btn-warning">DELETE</i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{url_for('main.update_blog', id=blog.id)}}"><i class="btn btn-warning">EDIT</i></a> {% endif %}
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+<style>
+    body {
+        background-color: white;
+       
+    }
+    
+    .panel {
+        background-color: rgb(107, 101, 101);
+        color: #fff;
+    }
+    
+    .panel-footer {
+        background-color: rgba(107, 101, 101, 0.8);
+        color: #fff;
+    }
+</style>
+{%endblock%}

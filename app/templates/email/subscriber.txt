@@ -1,0 +1,4 @@
+Hello {{subscriber.name}}
+Welcome to Blog H
+We have just seen you have signed up for our website and we welcome you to our community and wish the best expirience from our website.
+Thank you.

@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {%import "bootstrap/wtf.html" as wtf%}{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- displaying  Username-->
+        <h1 class="text-center"> {{user.username| capitalize}} </h1>
+        <hr>
+        <!--Display profile photo-->
+       
+        <div class="col-md-6">
+            <p> <b>Name:</b> {{user.firstname}} {{user.lastname}} </p>
+            <p><b> Date joined: </b>{{user.date_joined.strftime("%Y-%m-%d")}}</p>
+        </div>
+    
+    <div class="col-md-6">
+        <h3><b>Add Your Bio</b></h3>
+
+        <!--Displaying user bio-->
+        {% if user.bio %}
+        <p> {{user.bio}}</p>
+        {%else%}
+        <p> You have no bio </p>
+        {% endif %} {% if user == current_user %}
+        <a href="{{url_for('main.update_profile',uname=user.username)}}"><button type="button"
+                    class="btn btn-info">Edit profile</button></a> {% endif %}
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="">
+                    {% if user.profile_pic_path %}
+                    <img class="" src="{{url_for('static', filename=user.profile_pic_path)}}" alt="profile" class="img-circle img-responsive" width="200px"><br><br> {%else%}
+                    <i class="fas fa-user fa-10x text-center"></i> <br><br> {% endif %} {% if user == current_user %}
+                    <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype="multipart/form-data">
+                        <input type="file" name="photo" class="form-control" required><br>
+                        <input type="submit">
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        <div class="col-md-3"></div>    
+    </div>
+
+</div>
+
+<style>
+    body {
+        background-color: oldlace;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+{% endblock %}

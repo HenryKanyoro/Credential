@@ -1,0 +1,56 @@
+<nav class="navbar ">
+    <div class=" container-fluid " style="text-decoration: none; color: #fff;">
+        <div class="navbar-header ">
+            <button type="button " class="navbar-toggle " data-toggle="collapse " data-target=".navbar-collapse ">
+                    <span class="sr-only ">Toggle navigation</span>
+                    <span class="icon-bar "></span>
+                    <span class="icon-bar "></span>
+                    <span class="icon-bar "></span>
+                </button>
+            <a href="/ " class="navbar-brand " style="font-family: 'Lobster', cursive; color: black; font-size: 40px;"><Strong>CREDENTIALS</Strong></a>
+        </div>
+        <div class="navbar-collapse collapse ">
+            <ul class="nav navbar-nav">
+                <li class="bar">
+                    <a href="{{url_for('main.index')}}" class="nav-link"><span style=>Home</span> </a>
+                </li>
+                <li class="bar">
+                    <a href="{{url_for('main.theblog')}}" class="nav-link"><span style=>Comment</span></a>
+                </li>
+                <li class="bar">
+                    <a href="{{url_for('main.blogs')}}" class="nav-link"><span style=>Make a comment</span></a>
+                </li>
+
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right ">
+                {% if current_user.is_authenticated %}
+
+
+    
+                <li>
+                    <a href="{{url_for( 'main.profile',uname=current_user.username)}} " style="text-decoration: none; "> PROFILE</a>
+                </li>
+                <li>
+                    <a href="{{url_for( 'auth.logout')}} " style="text-decoration: none; color: red;">SIGN OUT</a>
+                </li>
+
+                </li>
+                {% else %}
+
+                <li>
+                    <a href="{{url_for( 'auth.login')}} " style="text-decoration: none; color: red;">LOGIN</a>
+                </li>
+
+            </ul>
+            {%endif%}
+        </div>
+    </div>
+    </div>
+</nav>
+<style>
+    nav {
+        background: rgba(251, 251, 251, 0.815);
+    }
+</style>

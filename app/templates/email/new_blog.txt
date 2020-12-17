@@ -1,0 +1,10 @@
+Dear Subscriber!
+
+Sign in and check out this new Post and comment
+
+Title: {{new_blog.title_blog}}
+Post: {{new_blog.description|truncate(30)}}
+
+
+Yours sincerely,
+Best K-Blogs Creators.
