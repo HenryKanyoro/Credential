@@ -33,14 +33,14 @@
                     <a href="{{url_for( 'main.profile',uname=current_user.username)}} " style="text-decoration: none; "> PROFILE</a>
                 </li>
                 <li>
-                    <a href="{{url_for( 'auth.logout')}} " style="text-decoration: none; color: red;">SIGN OUT</a>
+                    <a href="{{url_for( 'auth.logout')}} " style="text-decoration: none;">SIGN OUT</a>
                 </li>
 
                 </li>
                 {% else %}
 
                 <li>
-                    <a href="{{url_for( 'auth.login')}} " style="text-decoration: none; color: red;">LOGIN</a>
+                    <a href="{{url_for( 'auth.login')}} " style="text-decoration: none;">LOGIN</a>
                 </li>
 
             </ul>
@@ -51,6 +51,6 @@
 </nav>
 <style>
     nav {
-        background: rgba(251, 251, 251, 0.815);
+        background: rgba(148, 243, 230, 0.815);
     }
 </style>
